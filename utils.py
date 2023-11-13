@@ -1,8 +1,11 @@
 import os
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import torch
+from sklearn.metrics import confusion_matrix
 
 
 def load_data_from_dir(csv_directory):
@@ -77,3 +80,29 @@ def model_predict(data_loader, model, encoder):
         test_accuracy = correct_predictions / total_samples
         print(f'Test accuracy: {test_accuracy:.2%}')
         return predicted_labels, actual_labels
+
+
+def plot_class_wise_prf(unique_labels, precision, recall, f1_score):
+    plt.figure(figsize=(12, 5))
+    plt.bar(unique_labels, precision, color='skyblue', alpha=0.7, label='Precision')
+    plt.bar(unique_labels, recall, color='lightgreen', alpha=0.7, label='Recall')
+    plt.bar(unique_labels, f1_score, color='coral', alpha=0.7, label='F1-Score')
+
+    plt.xlabel('Classes')
+    plt.ylabel('Score')
+    plt.title('Class-wise Precision, Recall, and F1-Score')
+    plt.xticks(fontsize=8)  # X-axis tick font size
+    plt.yticks(fontsize=8)
+    plt.legend()
+    plt.show()
+
+
+def plot_confusion_matrix_heatmap(actual_labels, predicted_labels):
+    cm = confusion_matrix(actual_labels, predicted_labels)
+    unique_labels = np.unique(np.concatenate((actual_labels, predicted_labels)))
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=unique_labels, yticklabels=unique_labels)
+    plt.xlabel('Predicted Labels')
+    plt.ylabel('True Labels')
+    plt.title('Confusion Matrix')
+    plt.show()
