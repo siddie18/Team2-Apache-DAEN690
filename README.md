@@ -56,8 +56,19 @@ To help understand the identified phases during a flight and verify the physics 
 Employing AutoML using the Flaml python open-source library, we have loaded the labeled dataset to identify the importance of each feature and validate the physics model features. After that, we have developed the model training to find the best model.
 - **auto_ml_sw_rc.ipynb**
 Employing AutoML and sliding window regression classifier to find the count of each identified phase.
+- **auto_ml_feature_importance.ipynb**
+Employing AutoML to identify which features have the most impact on the outcome of the model. To improve the final model accuracy and validate the physical model performance.
 - **lstm.ipynb**
 Training LSTM (Long Short-Term Memory) a recurrent neural network (RNN) to identify the flight phases.
 - **svm.ipynb**
 Training SVM (Support Vector Machine) a supervised machine learning to identify the flight phases.
 
+### Final Results
+
+| Model                  | Accuracy | Precision | Recall | F1-Score |
+|------------------------|----------|-----------|--------|----------|
+| Auto ML (RandomForest) | 1.00     | 1.00      | 1.00   | 1.00     |
+| Neural Network         | 0.92     | -         | -      | -        |
+| Logistic Regression    | 0.87     | 0.87      | 0.87   | 0.86     |
+| Decision Tree          | 0.95     | 0.96      | 0.95   | 0.95     |
+| LSTM                   | 0.94     | 0.91      | 0.94   | 0.92     |
