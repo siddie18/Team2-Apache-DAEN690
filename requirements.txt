@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+mplcursors
+scikit-learn
+seaborn
+imblearn
+flaml
+plotly
