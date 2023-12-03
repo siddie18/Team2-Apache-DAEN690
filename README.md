@@ -35,8 +35,29 @@ pip3 install -r requirements.txt
 ├── data_analysis.ipynb
 ├── data_preprogressing_physics_model.ipynb
 ├── data_visualization.ipynb
+├── best_model.pkl
 ├── requirements.txt
 └── README.md
+```
+
+## Run the best model
+Load the best model and make a prediction:
+```
+import pickle
+import flaml
+from sklearn.metrics import accuracy_score
+import pandas as pd
+
+# Load the best model for prediction
+with open("best_model.pkl", "rb") as model_file:
+    loaded_model = pickle.load(model_file)
+
+# Load the flight data
+data = pd.read_csv('flight_data.csv')
+X = data[['Vert. Speed', 'Groundspeed', 'Altitude(AGL)']]
+
+# Make predictions using the loaded model
+phases = loaded_model.predict(X)
 ```
 
 ## Notebooks
