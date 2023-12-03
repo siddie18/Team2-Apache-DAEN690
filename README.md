@@ -15,6 +15,7 @@ seaborn
 imblearn
 flaml
 plotly
+tensorflow
 ```
 
 ## Install
@@ -22,6 +23,8 @@ plotly
 python3 -m venv apache-env
 source apache-env/bin/activate
 pip3 install -r requirements.txt
+
+See individual notebooks for specific installation instructions
 ```
 
 ## Project structure
@@ -30,7 +33,7 @@ pip3 install -r requirements.txt
 │   ├── auto_ml.ipynb
 │   ├── auto_ml_sw_rc.ipynb
 │   ├── lstm.ipynb
-│   └── svm.ipynb
+│   └── logistic_regression_decisiontree_and_NN.ipynb
 ├── data_quality_check.ipynb
 ├── data_analysis.ipynb
 ├── data_preprogressing_physics_model.ipynb
@@ -81,8 +84,8 @@ Employing AutoML and sliding window regression classifier to find the count of e
 Employing AutoML to identify which features have the most impact on the outcome of the model. To improve the final model accuracy and validate the physical model performance.
 - **lstm.ipynb**
 Training LSTM (Long Short-Term Memory) a recurrent neural network (RNN) to identify the flight phases.
-- **svm.ipynb**
-Training SVM (Support Vector Machine) a supervised machine learning to identify the flight phases.
+- **logistic_regression_decisiontree_and_NN.ipynb**
+Training Logistic Regression, Decision Tree, and Neural Network.
 
 ### Final Results
 
